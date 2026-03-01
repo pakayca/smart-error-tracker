@@ -24,7 +24,7 @@ Smart Error Tracker captures unhandled exceptions in your applications via a cus
 3. **Install dependencies:**
    ```bash
    npm install
-
+   ```
 4.  **Environment Variables:**
   Create a .env.local file in the root directory and add your keys. Never commit this file.
 
@@ -32,7 +32,7 @@ Smart Error Tracker captures unhandled exceptions in your applications via a cus
   NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
   GEMINI_API_KEY=your_gemini_api_key
-
+  ```
 4.  **Database Setup (Supabase):**
 * **Execute the following SQL command in your Supabase SQL Editor to create the required table:**
 
@@ -46,11 +46,11 @@ CREATE TABLE error_groups (
   status TEXT DEFAULT 'open',
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
-
+```
 5.  **Run the development server:**
   ```bash
   npm run dev
-
+  ```
 6.  **Open:**
    http://localhost:3000 to view the dashboard.
 
@@ -62,5 +62,5 @@ import SmartTracker from './lib/smart-tracker';
 
 // Initialize with your API endpoint
 SmartTracker.init('/api/report');
-
+ ```
  * **Once initialized, any unhandled runtime error will be automatically caught, sent to the API, analyzed by the AI, and displayed on the dashboard.**
