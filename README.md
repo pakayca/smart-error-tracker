@@ -22,21 +22,21 @@ Smart Error Tracker captures unhandled exceptions in your applications via a cus
    cd smart-error-tracker
 
 3. **Install dependencies:**
-   Bash
-npm install
+   ```bash
+   npm install
 
 4.  **Environment Variables:**
   Create a .env.local file in the root directory and add your keys. Never commit this file.
 
- Kod snippet'i
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-GEMINI_API_KEY=your_gemini_api_key
+  ```bash
+  NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+  NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+  GEMINI_API_KEY=your_gemini_api_key
 
 4.  **Database Setup (Supabase):**
 * **Execute the following SQL command in your Supabase SQL Editor to create the required table:**
 
-   SQL
+ ```bash
 CREATE TABLE error_groups (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   fingerprint TEXT UNIQUE NOT NULL,
@@ -48,8 +48,8 @@ CREATE TABLE error_groups (
 );
 
 5.  **Run the development server:**
-  Bash
-npm run dev
+  ```bash
+  npm run dev
 
 6.  **Open:**
    http://localhost:3000 to view the dashboard.
@@ -57,7 +57,7 @@ npm run dev
 ## 🔌 SDK Integration Usage
 *  **To monitor errors in any Next.js/React application, initialize the tracker at the root layout or main entry point of your project:**
 
-JavaScript
+ ```bash
 import SmartTracker from './lib/smart-tracker';
 
 // Initialize with your API endpoint
