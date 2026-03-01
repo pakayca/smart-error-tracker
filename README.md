@@ -17,34 +17,39 @@ Smart Error Tracker captures unhandled exceptions in your applications via a cus
 ## 📦 Installation & Setup
 
 1. **Clone the repository:**
+   ```bash
    git clone [https://github.com/pakayca/smart-error-tracker.git](https://github.com/pakayca/smart-error-tracker.git)
    cd smart-error-tracker
 
-2. **Install dependencies:**
-   npm install
+3. **Install dependencies:**
+   Bash
+npm install
 
-3.  **Environment Variables:**
+4.  **Environment Variables:**
   Create a .env.local file in the root directory and add your keys. Never commit this file.
 
-  NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-  NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-  GEMINI_API_KEY=your_gemini_api_key
+ Kod snippet'i
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+GEMINI_API_KEY=your_gemini_api_key
 
 4.  **Database Setup (Supabase):**
 * **Execute the following SQL command in your Supabase SQL Editor to create the required table:**
 
-   CREATE TABLE error_groups (
-     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-     fingerprint TEXT UNIQUE NOT NULL,
-     message TEXT NOT NULL,
-     ai_suggestion TEXT,
-     count INTEGER DEFAULT 1,
-     status TEXT DEFAULT 'open',
-     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
-   );
+   SQL
+CREATE TABLE error_groups (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  fingerprint TEXT UNIQUE NOT NULL,
+  message TEXT NOT NULL,
+  ai_suggestion TEXT,
+  count INTEGER DEFAULT 1,
+  status TEXT DEFAULT 'open',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
 
 5.  **Run the development server:**
-   npm run dev
+  Bash
+npm run dev
 
 6.  **Open:**
    http://localhost:3000 to view the dashboard.
@@ -52,7 +57,9 @@ Smart Error Tracker captures unhandled exceptions in your applications via a cus
 ## 🔌 SDK Integration Usage
 *  **To monitor errors in any Next.js/React application, initialize the tracker at the root layout or main entry point of your project:**
 
+JavaScript
 import SmartTracker from './lib/smart-tracker';
+
 // Initialize with your API endpoint
 SmartTracker.init('/api/report');
 
